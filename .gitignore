@@ -51,6 +51,18 @@ coverage.xml
 .pytest_cache/
 cover/
 
+# Specific directories to ignore
+1_foundations/me/archive/
+2_openai/community_contributions/2_lab2_WithErrorHandling.ipynb
+3_crew/engineering_team/output/
+3_crew/stumblethenieap_enginningteam/
+6_mcp/scripts/
+
+# You might also want to add common patterns
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+
 # Translations
 *.mo
 *.pot
