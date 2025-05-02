@@ -56,13 +56,15 @@ async def main():
     os.makedirs(sandbox_path, exist_ok=True)
     
     # Configure MCP servers
+    fetch_params = {"command": "uvx", "args": ["mcp-server-fetch"]}
     files_params = {"command": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem", sandbox_path]}
     playwright_params = {"command": "npx", "args": ["@playwright/mcp@latest"]}
     
-    # Run the agent with two MCP servers
+    # Run the agent with all three MCP servers
     try:
         async with MCPServerStdio(params=files_params, cache_tools_list=True) as mcp_server_files:
             async with MCPServerStdio(params=playwright_params, cache_tools_list=True) as mcp_server_browser:
+                # Start with just two servers that we know are working
                 agent = Agent(
                     name="investigator", 
                     instructions=instructions, 

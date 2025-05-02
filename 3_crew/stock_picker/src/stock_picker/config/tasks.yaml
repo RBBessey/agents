@@ -1,6 +1,6 @@
 find_trending_companies:
   description: >
-    Find the top trending companies in the news in {sector} by searching the latest news. Find new companies that you've not found before.
+    Find the top trending companies (include its ticker symbol) in the news in {sector} by searching the latest news. Find new companies that you've not found before.
   expected_output: >
     A list of trending companies in {sector}
   agent: trending_company_finder
@@ -8,7 +8,7 @@ find_trending_companies:
 
 research_trending_companies:
   description: >
-    Given a list of trending companies, provide detailed analysis of each company in a report by searching online
+    Given a list of trending companies, provide detailed analysis of each company (include its ticker symbol) in a report by searching online
   expected_output: >
     A report containing detailed analysis of each company
   agent: financial_researcher
@@ -19,10 +19,10 @@ research_trending_companies:
 pick_best_company:
   description: >
     Analyze the research findings and pick the best company for investment.
-    Send a push notification to the user with the decision and 1 sentence rationale.
-    Then respond with a detailed report on why you chose this company, and which companies were not selected.
+    Send a push notification to the user with the decision and 1 sentence rationale (include its ticker symbol).
+    Then respond with a detailed report on why you chose this company, and which companies were not selected (include its ticker symbol.
   expected_output: >
-    The chosen company and why it was chosen; the companies that were not selected and why they were not selected.
+    The chosen company (include its ticker symbol) and why it was chosen; the companies that were not selected and why they were not selected.
   agent: stock_picker
   context:
     - research_trending_companies
